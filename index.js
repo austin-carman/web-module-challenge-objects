@@ -15,9 +15,10 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(name, price, category){
+  return {name, price, category};    
 }
+console.log('task 1a:', createMenuItem("pizza", 8, "lunch"));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -28,7 +29,13 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+createMenuItem("soup", 10, "lunch");
+createMenuItem("sandwich", 9, "lunch");
+createMenuItem("ice cream", 7, "dessert");
 
+console.log('task 1b', createMenuItem("soup", 10, "lunch"));
+console.log('task 1b', createMenuItem("sandwich", 9, "lunch"));
+console.log('task 1b', createMenuItem("ice cream", 7, "dessert"));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -43,14 +50,23 @@ Using the burger object below do the following:
 
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
-
+// see how we added method to dog in notes
 export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
   /*Your code here*/
+  discount: function discountFunc(string){
+    if(string.toLowerCase === "teacher" || "student" ){
+      burger.price = 18 * 0.75;
+    }else if(string.toLowerCase === "public"){
+      burger.price = 18 * 0.90;
+    }
+    return burger.price;
+  }
 }
-
+burger.discount("teacher");
+console.log('task 2:', burger.discount("public"));
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -78,6 +94,8 @@ Using the reviews array above do the following: (no function needed)
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
+reviews.push({name: "John", rating: "0", feedback: "Got food poisoning. It was a really bad experience. Do not recommend."});
+console.log('task 4', reviews);
 
 
 
@@ -86,8 +104,9 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   1. Add this feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
   2. log the reviews array to the console to check your work
 */
-
-
+// see notes: changeKey updates - used a function there but you could just do it outside a function
+reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays";
+console.log('task 5', reviews);
 
 
 
@@ -101,9 +120,10 @@ Use the getReviewByIndex function below to do the following:
   For example: getReviewByIndex(reviews,0) would return: "Daniela gave the restaurant a 5 star review, and their feedback was: Beautiful atmosphere and wonderful vegan options!"
 */
 
+// see same notes as task 5
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, number) {
+  return `${array[number].name} gave the restaurant a ${array[number].rating} star review, and their feedback was: ${array[number].feedback}`;
 }
 
 
@@ -120,6 +140,7 @@ Use the getLastReview function below to do the following:
   For example: getLastReview(reviews) would return: "Reyna gave the restaurant a 3.5 star review, and their feedback was: this place is chill with really cool people, great for getting work done on weekdays".
 */
 
+// using array.length-1
 
 function getLastReview(/*Your code here*/) {
   /*Your code here*/
