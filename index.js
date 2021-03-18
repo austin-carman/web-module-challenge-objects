@@ -127,7 +127,7 @@ function getReviewByIndex(array, number) {
   return `${array[number].name} gave the restaurant a ${array[number].rating} star review, and their feedback was: ${array[number].feedback}`;
 }
 
-
+// console.log('task 5:', getReviewByRating(reviews, 0));
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -167,9 +167,17 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+let ratings4 = [];
+ function getReviewByRating(array, rating) {
+    for(let i = 0; i < array.length; i++){
+      if(array[i].rating >= 4 && array[i].rating < 5){
+        ratings4.push(array[i]);
+      }
+    }
+    return ratings4;
   }
+console.log('stretch 1:', getReviewByRating(reviews, 4));
+
 
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
@@ -184,11 +192,17 @@ Use the getLongReviews function below to do the following:
     {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." }
   ]
 */
-
-function getLongReviews(/* code here */) {
-    /* code here */
+let longReviews = [];
+function getLongReviews(array) {
+    for(let i = 0; i < array.length; i++){
+      if(array[i].feedback.split(' ').length > 15){
+        longReviews.push(array[i]);
+      }
+    }
+    return longReviews;
   }
-  
+  console.log('stretch 2:', getLongReviews(reviews));
+
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
 This stretch goal does not use the reviews data!  You create your own object in this stretch goal.
@@ -208,11 +222,16 @@ Use the carMaker function below to do the following:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
-    
+function carMaker(odometer) {
+  return {odometer, 
+      drive: function(milesAdded){
+        this.odometer = this.odometer + milesAdded
+        return this.odometer;
+      }
+    };
 }
-
+const car1 = carMaker(30);
+console.log('stretch 3:', car1.drive(100));
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
