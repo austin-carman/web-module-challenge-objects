@@ -57,10 +57,10 @@ export const burger = {
   category: "Lunch", 
   /*Your code here*/
   discount: function discountFunc(string){
-    if(string.toLowerCase === "teacher" || "student" ){
-      burger.price = 18 * 0.75;
+    if(string.toLowerCase === "teacher" || "student"){
+      burger.price = this.price * 0.75;
     }else if(string.toLowerCase === "public"){
-      burger.price = 18 * 0.90;
+      burger.price = this.price * 0.90;
     }
     return burger.price;
   }
@@ -85,7 +85,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-
+console.log('task 3:', reviews[5].feedback);
 
 
 
@@ -142,9 +142,11 @@ Use the getLastReview function below to do the following:
 
 // using array.length-1
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+  return `${array[array.length-1].name} gave the restaurant a ${array[array.length-1].rating} star review, and their feedback was: ${array[array.length-1].feedback}`
 } 
+getLastReview(reviews);
+console.log('task 7:', getLastReview(reviews));
 
 
 
